@@ -1,0 +1,61 @@
+body {
+  text-align: center;
+  background-color: lightgrey;
+}
+
+h5 {
+  display: inline;
+}
+
+footer {
+  background-color: grey;
+}
+
+.line {
+  fill: none;
+  stroke: black;
+  stroke-width: 0.5;
+}
+
+.line-average {
+  stroke: black;
+  stroke-dasharray: 5,5;
+}
+
+.text-average {
+  fill: black;
+}
+
+.area {
+  fill: yellow;
+}
+
+.danger-area {
+  fill: orange;
+}
+
+button {
+  color: white;
+}
+
+.btnNeutral {
+  background-color: white;
+  color: black;
+}
+
+.btnGreen {
+  background-color: green;
+}
+
+.btnYellow {
+  background-color: yellow;
+  color: black;
+}
+
+.btnBlue {
+  background-color: blue;
+}
+
+.btnRed {
+  background-color: red;
+}
