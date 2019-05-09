@@ -251,6 +251,7 @@ function init() {
     .on("mouseover", function(d) {
       var xPosition = parseFloat(d3.select(this).attr("x"));
       var yPosition = parseFloat(d3.select(this).attr("y"));
+      var wd = parseFloat(d3.select(this).attr("width"));
 
       svg.append("text")
       .attr("id", "tooltip")
@@ -280,6 +281,7 @@ function init() {
       d3.select("#svg2").remove();
       setupChart(country, range);
       title2.innerHTML = "Alcohol Consumption in " + country + " from " + range;
+      scrollTo();
     })
     .transition()
     .duration(1000)
@@ -331,6 +333,12 @@ function init() {
     .attr("x2", w)
     .attr("y2", yScale(avg))
     .style("stroke", "white");
+
+    svg.append("text")
+    .attr("class", "text-average")
+    .attr("x", w - 200)
+    .attr("y", yScale(avg) - 5)
+    .text("Average alcohol consumption");
 
     var axis = document.getElementById('x-axis');
     axis.parentNode.removeChild(axis);
@@ -473,6 +481,12 @@ function init() {
     .attr("y", yScale(avg) - 5)
     .text(country + " average alcohol consumption over the years");
   }
+
+  function scrollTo() {
+    $('html, body').animate({ scrollTop: $('#insight2').offset().top }, 'slow');
+    return false;
+  }
+
 }
 
 window.onload = init;

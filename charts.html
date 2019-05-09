@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Khairunnasulfahmi" />
+  <meta name="content" content="Data Visualisation Project" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script type="text/javascript" src='script.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <title>Alcohol Consumption Visualisation</title>
+</head>
+  <body>
+    <head>
+      <nav>
+        <div class="nav-wrapper grey darken-3">
+          <a href="#" class="brand-logo left">Logo</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a class="yellow-text" href="index.html">Home</a></li>
+            <li><a class="yellow-text" href="charts.html">Charts</a></li>
+            <li><a class="yellow-text" href="method.html">Methodology</a></li>
+            <li><a class="yellow-text" href="reference.html">References</a></li>
+          </ul>
+        </div>
+      </nav>
+    </head>
+    <br />
+    <div id="buttons">
+      <h6>Since 1990</h6>
+      <button type="button" id="all" class="btnNeutral">All</button>
+      <button type="button" id="asia" class="btnYellow">Asia/Oceania</button>
+      <button type="button" id="europe" class="btnBlue">Europe</button>
+      <button type="button" id="america" class="btnRed">America</button>
+      <button type="button" id="africa" class="btnGreen">Africa</button>
+      <br /><br />
+      <h6>Since 1996</h6>
+      <button type="button" id="all_96" class="btnNeutral">All</button>
+      <button type="button" id="asia_96" class="btnYellow">Asia/Oceania</button>
+      <button type="button" id="europe_96" class="btnBlue">Europe</button>
+      <button type="button" id="america_96" class="btnRed">America</button>
+      <button type="button" id="africa_96" class="btnGreen">Africa</button>
+      <br /><br />
+      <h6>Since 2006</h6>
+      <button type="button" id="all_06" class="btnNeutral">All</button>
+      <button type="button" id="asia_06" class="btnYellow">Asia/Oceania</button>
+      <button type="button" id="europe_06" class="btnBlue">Europe</button>
+      <button type="button" id="america_06" class="btnRed">America</button>
+      <button type="button" id="africa_06" class="btnGreen">Africa</button>
+    </div>
+    <div id="insight1">
+      <h4 id="title-1"></h4>
+      <div id="chart">
+      </div>
+    </div>
+    <hr />
+    <div id="insight2">
+      <h4 id="title-2"></h4>
+      <div id="chart2"></div>
+    </div>
+    <footer class="page-footer grey darken-3">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12 left-align">
+            <h5 class="yellow-text">Data Visualisation</h5>
+            <p class="grey-text text-lighten-4">Data Visualisation Project</p>
+            <p class="grey-text text-lighten-4">COS30045 - Data Visualisation</p>
+            <p class="grey-text text-lighten-4">Author: Khairunnasulfahmi Khairul Zaki</p>
+            <p class="grey-text text-lighten-4">Lecturer: Karola Von Baggo</p>
+            <p class="grey-text text-lighten-4">Tutor: Humphrey Obie</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="yellow-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="index.html">Home</a></li>
+              <li><a class="grey-text text-lighten-3" href="charts.html">Charts</a></li>
+              <li><a class="grey-text text-lighten-3" href="method.html">Methodology</a></li>
+              <li><a class="grey-text text-lighten-3" href="reference.html">References</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright grey darken-4">
+        © Khairunnasulfahmi Khairul Zaki
+        <a class="grey-text text-lighten-4 right" href="#!">COS30045 Data Visualisation 2019</a>
+      </div>
+    </footer>
+  </body>
+</html>

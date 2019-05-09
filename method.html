@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Khairunnasulfahmi" />
+  <meta name="content" content="Data Visualisation Project" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <!-- <script type="text/javascript" src='script.js'></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <title>Alcohol Consumption Visualisation</title>
+</head>
+
+<body>
+    <nav>
+      <div class="nav-wrapper grey darken-3">
+        <a href="#" class="brand-logo left">Logo</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a class="yellow-text" href="index.html">Home</a></li>
+          <li><a class="yellow-text" href="charts.html">Charts</a></li>
+          <li><a class="yellow-text" href="method.html">Methodology</a></li>
+          <li><a class="yellow-text" href="reference.html">References</a></li>
+        </ul>
+      </div>
+    </nav>
+  <br />
+  <div id="source">
+    <div class="container left-align">
+      <div class="col s12">
+        <div class="card white back-text">
+          <div class="card-content">
+            <span class="card-title yellow-text text-darken-2">Data Collection Stage</span>
+            <p>
+              For this project, the dataset that is used is a second-source data
+              the data are collected by other organization and not myself. The
+              dataset that is extracted can be found at oecd.org where the dataset
+              is related to Non-medical determinants of health.
+            </p>
+            <p>
+              The dataset is downloaded in a comma separated value (csv) file because
+              it is easier to process the data in that format. The file contains many
+              data including variable, measure, country code, country name, year, value and many more.
+            </p>
+            <p>
+              After going though some consideration and thoughts, only a certain number of
+              columns will be selected to be analysed. The most important data would be
+              the alcohol consumption measures, the year it is recorded and the country it is
+              associated with. In addition, I have derived a new column to store the
+              continent that the country is in. This is because the countries can
+              be grouped into continents.
+            </p>
+            <p>
+              As for the alcohol consumption will be recorded as a numerical data,
+              year as an ordinal data, while country and continent as a categorical data.
+            </p>
+            <p>
+              Here is a screenshot of a part of the full dataset that is used from
+              the internet
+            </p>
+            <div class="center-align">
+              <img src="pic/1.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div id="process">
+    <div class="container left-align">
+      <div class="col s12">
+        <div class="card white back-text">
+          <div class="card-content">
+            <span class="card-title yellow-text text-darken-2">Data Processing Stage</span>
+            <p>
+              In order to filter out all the data that is not relevent and useful
+              for the data visualisation, I have created a script of python to
+              generate all the datasets that I need. I have used the pandas library
+              to assist me in creating dataset
+            </p>
+            <p>
+              The final format of the datasets is in a comma separated value (csv)
+              file because it would be more easier for data visualisation using D3.
+            </p>
+            <p>
+              From all the data from the original dataset, I have classified the data
+              on alcohol consumption into many groups based on countries, continents
+              and also year range. This is to ensure the dataset are classified
+              and grouped, making it easier for data analysing to find correlations
+              and patterns.
+            </p>
+            <p>
+              Included here is an excerpt from the python script as an example
+            </p>
+            <div class="center-align">
+              <img src="pic/py1.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div id="visual">
+    <div class="container left-align">
+      <div class="col s12">
+        <div class="card white back-text">
+          <div class="card-content">
+            <span class="card-title yellow-text text-darken-2">Data Visualisation Stage</span>
+            <p>
+              At this stage, since all the datasets that are needed are generated,
+              the visualisation can be made. In this project, the tool that is used
+              to create visualisations is D3.js.
+            </p>
+            <p>
+              Considerations and selections are made to use the most suitable
+              graph for each dataset. This is an essential part to ensure the data
+              are being represented correctly and to avoid misconception.
+            </p>
+            <p>
+              The encoding and other factors such as hue, filtering and many more
+              are discussed in the project book. The chart that is displayed intially
+              are the data from 1990 and the user will be able to see data on-demand
+              and filter the data based on continents.
+            </p>
+            <p>The visualisations can be found at the <a href="charts.html">Charts tab</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div id="analyse">
+    <div class="container left-align">
+      <div class="col s12">
+        <div class="card white back-text">
+          <div class="card-content">
+            <span class="card-title yellow-text text-darken-2">Data Analysis and Conclusion Stage</span>
+            <p>
+              At this stage, after filtering and looking the charts in many ways,
+              findings are recorded and listed below
+            </p>
+            <br />
+            <p>Findings</p>
+            <ul class="circle">
+              <li>Countries in Europe has the most alcohol consumption compared to countries in other continents</li>
+              <li>Australia has the most alcohol consumption in Asia</li>
+              <li>Indonesia has the least alcohol consumption in Asia and in the world</li>
+              <li>African countries cannot be compared because there is only one country from Africa</li>
+            </ul>
+            <p>Conclusion</p>
+            <ul class="circle">
+              <li>Russia has the most litres of Alcohol Consumption per capita for citizens aged 15 and above since 1990 but the litres of alchol consumption has decreased over the years</li>
+              <li>United States is the country with the most alcohol consumption per capita for citizens aged 15 and above in the America continent since 1990</li>
+              <li>Lithuania who ranked 17th in Europe in 1990 for alcohol consumption per capita for citizens aged 15 and above has increased to the first rank in the 2006-2015 period</li>
+              <li>Australia is the only country from the Asia/Oceania continent to be ranked among other European countries in the top 50% of the list since 1990</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <footer class="page-footer grey darken-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12 left-align">
+          <h5 class="yellow-text">Data Visualisation</h5>
+          <p class="grey-text text-lighten-4">Data Visualisation Project</p>
+          <p class="grey-text text-lighten-4">COS30045 - Data Visualisation</p>
+          <p class="grey-text text-lighten-4">Author: Khairunnasulfahmi Khairul Zaki</p>
+          <p class="grey-text text-lighten-4">Lecturer: Karola Von Baggo</p>
+          <p class="grey-text text-lighten-4">Tutor: Humphrey Obie</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="yellow-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="index.html">Home</a></li>
+            <li><a class="grey-text text-lighten-3" href="charts.html">Charts</a></li>
+            <li><a class="grey-text text-lighten-3" href="method.html">Methodology</a></li>
+            <li><a class="grey-text text-lighten-3" href="reference.html">References</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright grey darken-4">
+      © Khairunnasulfahmi Khairul Zaki
+      <a class="grey-text text-lighten-4 right" href="#!">COS30045 Data Visualisation 2019</a>
+    </div>
+  </footer>
+</body>
+
+</html>

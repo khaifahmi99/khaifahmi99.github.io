@@ -1,14 +1,21 @@
 body {
   text-align: center;
   background-color: lightgrey;
+  margin: 0;
+  padding: 0;
 }
 
-h5 {
+h6 {
   display: inline;
 }
 
-footer {
-  background-color: grey;
+.card-title {
+  font-weight: bold;
+  font-family: Oswald;
+}
+
+#insight2 {
+  padding-top: 5px;
 }
 
 .line {
@@ -58,4 +65,40 @@ button {
 
 .btnRed {
   background-color: red;
+}
+
+header {
+  background: rgba(57,57,57, 0.76) url(pic/banner.png);
+  min-height: 560px;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+  position: relative;
+}
+
+header h4 {
+  animation: slideIn 0.7s 0.3s both ease;
+  font-weight: bolder;
+}
+
+header h5 {
+  animation: slideIn 0.7s 0.4s both ease;
+}
+
+header a {
+  animation: slideIn 0.7s 0.5s both ease;
+}
+
+header h4, header h5 {
+  position: relative;
+}
+
+header h3 {
+  margin-top: 70px;
+}
+
+.circle li {
+  list-style-type: circle !important;
+  list-style-position: inside;
 }

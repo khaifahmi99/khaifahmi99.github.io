@@ -1,45 +1,157 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="author" content="Khairunnasulfahmi"/>
-    <meta name="content" content="Data Visualisation Project"/>
-    <link rel="stylesheet" href="styles.css"/>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script type="text/javascript" src='script.js'></script>
-    <title>Alcohol Consumption Visualisation</title>
-  </head>
-  <body>
-    <h1>Alcohol Consumption Visualisation</h1>
-    <h5>Since 1990</h5>
-    <button type="button" id="all" class="btnNeutral">All</button>
-    <button type="button" id="asia" class="btnYellow">Asia/Oceania</button>
-    <button type="button" id="europe" class="btnBlue">Europe</button>
-    <button type="button" id="america" class="btnRed">America</button>
-    <button type="button" id="africa" class="btnGreen">Africa</button>
-    <br /><br />
-    <h5>Since 1996</h5>
-    <button type="button" id="all_96" class="btnNeutral">All</button>
-    <button type="button" id="asia_96" class="btnYellow">Asia/Oceania</button>
-    <button type="button" id="europe_96" class="btnBlue">Europe</button>
-    <button type="button" id="america_96" class="btnRed">America</button>
-    <button type="button" id="africa_96" class="btnGreen">Africa</button>
-    <br /><br />
-    <h5>Since 2006</h5>
-    <button type="button" id="all_06" class="btnNeutral">All</button>
-    <button type="button" id="asia_06" class="btnYellow">Asia/Oceania</button>
-    <button type="button" id="europe_06" class="btnBlue">Europe</button>
-    <button type="button" id="america_06" class="btnRed">America</button>
-    <button type="button" id="africa_06" class="btnGreen">Africa</button>
-    <h2 id="title-1"></h2>
-    <div id="chart">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Khairunnasulfahmi" />
+  <meta name="content" content="Data Visualisation Project" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <!-- <script type="text/javascript" src='script.js'></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <title>Alcohol Consumption Visualisation</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="nav-wrapper grey darken-3">
+        <a href="#" class="brand-logo left">Logo</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a class="yellow-text" href="index.html">Home</a></li>
+          <li><a class="yellow-text" href="charts.html">Charts</a></li>
+          <li><a class="yellow-text" href="method.html">Methodology</a></li>
+          <li><a class="yellow-text" href="reference.html">References</a></li>
+        </ul>
+      </div>
+    </nav>
+    <h3 class='yellow-text'>Alcohol Consumption Visualisation</h3>
+    <div class="container">
+      <div class="row">
+        <h4 class="col s8 white-text left-align">Help develop a better world by creating awareness on alcohol consumption</h4>
+        <h5 class="col white-text s12 left-align">Get deeper with alcohol consumption with charts</h5>
+      </div>
+      <a href="charts.html" class="scroll btn-large yellow darken-2 waves-effect waves-light white-text left">Discover Now<i class='material-icons right'>send</i></a>
     </div>
-    <hr />
-    <h2 id="title-2"></h2>
-    <div id="chart2"></div>
-    <footer>
-      COS30045<br />
-      Khairunnasulfahmi
-    </footer>
-  </body>
+  </header>
+  <br />
+  <div id="intro">
+    <div class="container left-align">
+      <div class="col s12">
+        <div class="card white back-text">
+          <div class="card-content">
+            <span class="card-title yellow-text text-darken-2">Overview</span>
+            <p>
+              Alcohol consumption issue has been a serious issue for many countries
+              around the world. We kept on seeing many facts and figure that shows
+              the problem keeps on rising and affect many people. However, do people
+              really care about this problem?
+            </p>
+            <p>
+              This topic is chosen because this topic, alcohol consumption are very
+              popular around the world. There are many warnings and awareness that has
+              already been implemented. As this is happening, there is a question on what
+              is the trend of alcohol consumption in some countries around the world.
+            </p>
+            <p>
+              The aim of this visualisation is to create figures and charts that
+              would create awareness on the readers. As more readers are aware of this
+              serious problem, it might have an effect hence allow this issue to be reduced
+            </p>
+            <p>
+              The methodology of this research are in short, gathering data of alcohol
+              consumption from many countries and compare each countries reading with
+              one another. Insights and findings from analysing the visualisation and
+              aims to create a conclusion based on all the findings.
+            </p>
+            <p>
+              Consideration and comparison has been made in order to pick the most
+              suitable charts that would convey the most information in a best manner
+              to the audience. The charts and figure on alcohol consumption can be
+              find on the <a href="charts.html">Chart Tab</a>.
+            </p>
+            <p>
+              Conclusion:
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div id="author">
+    <div class="container left-align">
+      <div class="col s12">
+        <div class="card white back-text">
+          <div class="card-content">
+            <span class="card-title yellow-text text-darken-2">About Author</span>
+            <div class="row">
+              <div class="col s4 center-align">
+                <br />
+                <img src="pic/handle.png" class="circle">
+              </div>
+              <div class="col s8 left-align">
+                <h5>Khairunnasulfahmi Khairul Zaki</h5>
+                <p>Computer Science Student Majoring in Data Science and IoT</p>
+                <p>Swinburne University of Technology</p>
+                <p>
+                  Interested in programming and data analysing. Currently in
+                  semester 2 of my three years degree. Expected year of graduation
+                  is in 2021
+                </p>
+                <br />
+                <p>Previous and current units: </p>
+                <ul class="circle">
+                  <li>Introduction to Programming</li>
+                  <li>Network and Switching</li>
+                  <li>Foundation of statistics</li>
+                  <li>Web application</li>
+                  <li>Object Oriented Programming</li>
+                  <li>Data Visualisation</li>
+                  <li>Cloud Computing Architecture</li>
+                  <li>Development Project I</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <footer class="page-footer grey darken-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12 left-align">
+          <h5 class="yellow-text">Data Visualisation</h5>
+          <p class="grey-text text-lighten-4">Data Visualisation Project</p>
+          <p class="grey-text text-lighten-4">COS30045 - Data Visualisation</p>
+          <p class="grey-text text-lighten-4">Author: Khairunnasulfahmi Khairul Zaki</p>
+          <p class="grey-text text-lighten-4">Lecturer: Karola Von Baggo</p>
+          <p class="grey-text text-lighten-4">Tutor: Humphrey Obie</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="yellow-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="index.html">Home</a></li>
+            <li><a class="grey-text text-lighten-3" href="charts.html">Charts</a></li>
+            <li><a class="grey-text text-lighten-3" href="method.html">Methodology</a></li>
+            <li><a class="grey-text text-lighten-3" href="reference.html">References</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright grey darken-4">
+      © Khairunnasulfahmi Khairul Zaki
+      <a class="grey-text text-lighten-4 right" href="#!">COS30045 Data Visualisation 2019</a>
+    </div>
+  </footer>
+</body>
+
 </html>
