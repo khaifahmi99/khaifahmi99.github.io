@@ -297,16 +297,16 @@ function init() {
     .style("fill", function(d) {
       switch (d.Continent) {
         case "Europe":
-          return "blue";
+          return "#386cb0";
           break;
         case "Asia/Oceania":
-          return "orange";
+          return "#d95f02";
           break;
         case "Africa":
-          return "green";
+          return "#1b9e77";
           break;
         case "America":
-          return "red";
+          return "#e7298a";
           break;
         default:
           return "black";

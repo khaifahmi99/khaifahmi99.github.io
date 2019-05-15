@@ -34,11 +34,11 @@ h6 {
 }
 
 .area {
-  fill: yellow;
+  fill: #fee090;
 }
 
 .danger-area {
-  fill: orange;
+  fill: #fc8d59;
 }
 
 button {
@@ -51,20 +51,19 @@ button {
 }
 
 .btnGreen {
-  background-color: green;
+  background-color: #1b9e77;
 }
 
 .btnYellow {
-  background-color: yellow;
-  color: black;
+  background-color: #d95f02;
 }
 
 .btnBlue {
-  background-color: blue;
+  background-color: #386cb0;
 }
 
 .btnRed {
-  background-color: red;
+  background-color: #e7298a;
 }
 
 header {
