@@ -51,19 +51,20 @@ button {
 }
 
 .btnGreen {
-  background-color: #1b9e77;
+  background-color: #009E73;
 }
 
 .btnYellow {
-  background-color: #d95f02;
+  background-color: #F0E442;
+  color: black;
 }
 
 .btnBlue {
-  background-color: #386cb0;
+  background-color: #0072B2;
 }
 
 .btnRed {
-  background-color: #e7298a;
+  background-color: #E69F00;
 }
 
 header {
