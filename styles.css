@@ -43,6 +43,10 @@ h6 {
 
 button {
   color: white;
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  border-color: white;
 }
 
 .btnNeutral {

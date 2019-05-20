@@ -29,33 +29,57 @@
       </nav>
     </head>
     <br />
-    <div id="buttons">
-      <h6>Since 1990</h6>
-      <button type="button" id="all" class="btnNeutral">All</button>
-      <button type="button" id="asia" class="btnYellow">Asia/Oceania</button>
-      <button type="button" id="europe" class="btnBlue">Europe</button>
-      <button type="button" id="america" class="btnRed">America</button>
-      <button type="button" id="africa" class="btnGreen">Africa</button>
-      <br /><br />
-      <h6>Since 1996</h6>
-      <button type="button" id="all_96" class="btnNeutral">All</button>
-      <button type="button" id="asia_96" class="btnYellow">Asia/Oceania</button>
-      <button type="button" id="europe_96" class="btnBlue">Europe</button>
-      <button type="button" id="america_96" class="btnRed">America</button>
-      <button type="button" id="africa_96" class="btnGreen">Africa</button>
-      <br /><br />
-      <h6>Since 2006</h6>
-      <button type="button" id="all_06" class="btnNeutral">All</button>
-      <button type="button" id="asia_06" class="btnYellow">Asia/Oceania</button>
-      <button type="button" id="europe_06" class="btnBlue">Europe</button>
-      <button type="button" id="america_06" class="btnRed">America</button>
-      <button type="button" id="africa_06" class="btnGreen">Africa</button>
+    <div class="row">
+      <div class="col s7">
+        <div id="buttons">
+          <h6>Since 1990</h6>
+          <button type="button" id="all" class="btnNeutral">All</button>
+          <button type="button" id="asia" class="btnYellow">Asia/Oceania</button>
+          <button type="button" id="europe" class="btnBlue">Europe</button>
+          <button type="button" id="america" class="btnRed">America</button>
+          <button type="button" id="africa" class="btnGreen">Africa</button>
+          <br /><br />
+          <h6>Since 1996</h6>
+          <button type="button" id="all_96" class="btnNeutral">All</button>
+          <button type="button" id="asia_96" class="btnYellow">Asia/Oceania</button>
+          <button type="button" id="europe_96" class="btnBlue">Europe</button>
+          <button type="button" id="america_96" class="btnRed">America</button>
+          <button type="button" id="africa_96" class="btnGreen">Africa</button>
+          <br /><br />
+          <h6>Since 2006</h6>
+          <button type="button" id="all_06" class="btnNeutral">All</button>
+          <button type="button" id="asia_06" class="btnYellow">Asia/Oceania</button>
+          <button type="button" id="europe_06" class="btnBlue">Europe</button>
+          <button type="button" id="america_06" class="btnRed">America</button>
+          <button type="button" id="africa_06" class="btnGreen">Africa</button>
+          <br />
+        </div>
+      </div>
+      <div class="col s5">
+        <div class="card">
+          <div class="card-content left-align">
+            <span class="card-title blue-text text-darken-2">Guidance</span>
+            <ul class="circle">
+              <li>Use Mouse and hover each bar for detailed readings</li>
+              <li>Click on bar to discover more details for the associated country</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="insight1">
       <h4 id="title-1"></h4>
       <div id="chart">
       </div>
     </div>
+    <form action="">
+      <p>
+        <label>
+          <input id="color-blind" type="checkbox" onchange='handleChange(this);' />
+          <span class="green-text text-darken-2">Color Blind Friendly</span>
+        </label>
+      </p>
+    </form>
     <hr />
     <div id="insight2">
       <h4 id="title-2"></h4>

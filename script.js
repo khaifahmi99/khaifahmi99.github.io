@@ -1,9 +1,24 @@
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function handleChange(checkbox) {
+  if(checkbox.checked) {
+    sessionStorage.setItem("colorBlind", "blind");
+    await sleep(1000);
+    location.reload();
+  } else {
+    sessionStorage.setItem("colorBlind", "normal");
+    await sleep(1000);
+    location.reload();
+  }
+}
+
 function init() {
   var country = "";
 
   var h = 600;
   var w = 1000;
-
 
   var title1 = document.getElementById('title-1');
   var title2 = document.getElementById('title-2');
@@ -26,6 +41,32 @@ function init() {
   var asiaBtn20 = document.getElementById('asia_96');
   var americaBtn20 = document.getElementById('america_96');
   var africaBtn20 = document.getElementById('africa_96');
+
+  var colorBlind = sessionStorage.getItem("colorBlind");
+  if (colorBlind == null) {
+    colorBlind = "normal";
+  }
+  if (colorBlind == "blind") {
+    document.getElementById('color-blind').checked = true;
+  }
+  if (colorBlind == "normal") {
+    document.getElementById('color-blind').checked = false;
+    europeBtn.style.backgroundColor = "#1f78b4";
+    europeBtn10.style.backgroundColor = "#1f78b4";
+    europeBtn20.style.backgroundColor = "#1f78b4";
+    asiaBtn.style.backgroundColor = "#d95f02";
+    asiaBtn10.style.backgroundColor = "#d95f02";
+    asiaBtn20.style.backgroundColor = "#d95f02";
+    asiaBtn.style.color = "white";
+    asiaBtn10.style.color = "white";
+    asiaBtn20.style.color = "white";
+    americaBtn.style.backgroundColor = "#e7298a";
+    americaBtn10.style.backgroundColor = "#e7298a";
+    americaBtn20.style.backgroundColor = "#e7298a";
+    africaBtn.style.backgroundColor = "#66a61e";
+    africaBtn10.style.backgroundColor = "#66a61e";
+    africaBtn20.style.backgroundColor = "#66a61e";
+  }
 
   var worldAverage = 0;
 
@@ -284,7 +325,7 @@ function init() {
       scrollTo();
     })
     .transition()
-    .duration(1000)
+    .duration(800)
     .delay(function(d, i) {
       return i * 200;
     })
@@ -297,16 +338,32 @@ function init() {
     .style("fill", function(d) {
       switch (d.Continent) {
         case "Europe":
-          return "#0072B2";
+          if(colorBlind == "blind") {
+            return "#0072B2";
+          } else if (colorBlind == "normal") {
+            return "#1f78b4";
+          }
           break;
         case "Asia/Oceania":
-          return "#F0E442";
+          if(colorBlind == "blind") {
+            return "#F0E442";
+          } else if (colorBlind == "normal"){
+            return "#d95f02";
+          }
           break;
         case "Africa":
-          return "#009E73";
+          if (colorBlind == "blind" ) {
+            return "#009E73";
+          } else if (colorBlind == "normal"){
+            return "#66a61e";
+          }
           break;
         case "America":
-          return "#E69F00";
+          if(colorBlind == "blind") {
+            return "#E69F00";
+          }else if (colorBlind == "normal"){
+            return "#e7298a";
+          }
           break;
         default:
           return "black";
@@ -332,7 +389,6 @@ function init() {
     .attr("y1", yScale(avg))
     .attr("x2", w)
     .attr("y2", yScale(avg))
-    .style("stroke", "white");
 
     svg.append("text")
     .attr("class", "text-average")
