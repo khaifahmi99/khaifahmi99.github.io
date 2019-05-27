@@ -1,12 +1,22 @@
+# importing all the libraries required
 import numpy as np
 import pandas as pd
 
+# read the raw datasets and select the fields that are related
 dataset = pd.read_csv("raw_dataset.csv")
 clean_dataset = dataset[['Country', 'Year', 'Value', 'Continent']]
 
+# create new dataframe for processing
 df = pd.DataFrame(clean_dataset)
+
+# get all the countries in the datasets
 country_list = df.Country.unique()
 print(country_list)
+
+'''
+group the countries based on their continents
+America, Asia/Oceania, Africa, Europe
+'''
 europe_country = df[df['Continent'] == 'Europe']
 europe_country = europe_country['Country'].unique()
 asia_country = df[df['Continent'] == 'Asia/Oceania']
@@ -15,8 +25,8 @@ america_country = df[df['Continent'] == 'America']
 america_country = america_country['Country'].unique()
 africa_country = df[df['Continent'] == 'Africa']
 africa_country = africa_country['Country'].unique()
-# print(len(country_list))
 
+# get the year range that all countries has
 first_year = []
 final_year = []
 for country in country_list:
@@ -30,6 +40,7 @@ year_from_10_years = year_to - 9
 year_from_20_years = year_to - 19
 # print(year_from, ' to ', year_to)
 
+# save individual country dataset based on 3 year range to csv
 for i in range(0, len(country_list)):
     tmp = df[(df.Country == str(country_list[i])) & (df.Year >= year_from) & (df.Year <= year_to)]
     tmp = tmp[['Year', 'Value']]
@@ -44,7 +55,8 @@ for i in range(0, len(country_list)):
     tmp = df[(df['Country'] == str(country_list[i])) & (df['Year'] >= year_from_20_years) & (df.Year <= year_to)]
     tmp = tmp[['Year', 'Value']]
     tmp.to_csv('processed_dataset/' + str(country_list[i]) + '_9615.csv', index = False)
-    
+
+# save other datasets processed to csv
 data = {'Country': [], 'Continent': [], 'Average': []}
 
 europe_data = {'Country': [], 'Continent': [], 'Average': []}

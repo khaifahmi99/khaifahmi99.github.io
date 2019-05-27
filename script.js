@@ -1,3 +1,4 @@
+// handle version of bar chart
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -14,12 +15,15 @@ async function handleChange(checkbox) {
   }
 }
 
+// executed on start
 function init() {
   var country = "";
 
+  // set up the width and height of the svg
   var h = 600;
   var w = 1000;
 
+  // get all the DOM Element
   var title1 = document.getElementById('title-1');
   var title2 = document.getElementById('title-2');
   title1.innerHTML = "Average Alcohol Consumption Since 1990";
@@ -42,6 +46,7 @@ function init() {
   var americaBtn20 = document.getElementById('america_96');
   var africaBtn20 = document.getElementById('africa_96');
 
+  // sessionStorage for the chart version
   var colorBlind = sessionStorage.getItem("colorBlind");
   if (colorBlind == null) {
     colorBlind = "normal";
@@ -51,21 +56,21 @@ function init() {
   }
   if (colorBlind == "normal") {
     document.getElementById('color-blind').checked = false;
-    europeBtn.style.backgroundColor = "#1f78b4";
-    europeBtn10.style.backgroundColor = "#1f78b4";
-    europeBtn20.style.backgroundColor = "#1f78b4";
-    asiaBtn.style.backgroundColor = "#d95f02";
-    asiaBtn10.style.backgroundColor = "#d95f02";
-    asiaBtn20.style.backgroundColor = "#d95f02";
+    europeBtn.style.backgroundColor = "#277eb8";
+    europeBtn10.style.backgroundColor = "#277eb8";
+    europeBtn20.style.backgroundColor = "#277eb8";
+    asiaBtn.style.backgroundColor = "#984ea3";
+    asiaBtn10.style.backgroundColor = "#984ea3";
+    asiaBtn20.style.backgroundColor = "#984ea3";
     asiaBtn.style.color = "white";
     asiaBtn10.style.color = "white";
     asiaBtn20.style.color = "white";
-    americaBtn.style.backgroundColor = "#e7298a";
-    americaBtn10.style.backgroundColor = "#e7298a";
-    americaBtn20.style.backgroundColor = "#e7298a";
-    africaBtn.style.backgroundColor = "#66a61e";
-    africaBtn10.style.backgroundColor = "#66a61e";
-    africaBtn20.style.backgroundColor = "#66a61e";
+    americaBtn.style.backgroundColor = "#e41a1c";
+    americaBtn10.style.backgroundColor = "#e41a1c";
+    americaBtn20.style.backgroundColor = "#e41a1c";
+    africaBtn.style.backgroundColor = "#4daf4a";
+    africaBtn10.style.backgroundColor = "#4daf4a";
+    africaBtn20.style.backgroundColor = "#4daf4a";
   }
 
   var worldAverage = 0;
@@ -80,6 +85,7 @@ function init() {
   .attr('height', h)
   .attr('width', w)
 
+  // handle filtering from buttons
   allBtn.addEventListener('click', function(e) {
     document.getElementById('svg').innerHTML = '';
     title1.innerHTML = "Average Alcohol Consumption Since 1990";
@@ -170,9 +176,12 @@ function init() {
     initial('processed_dataset/africa_alcohol_9615.csv');
   });
 
+  // intial dataset to be loaded
   initial('processed_dataset/average_alcohol_consumption_total.csv');
 
+
   function initial(mainLink) {
+    // create the bar chart axes and labels
     svg.append("text")
     .attr("class", "x-label")
     .attr("text-anchor", "end")
@@ -189,6 +198,7 @@ function init() {
     .attr("transform", "rotate(-90)")
     .text("Alcohol consumption per capita for citizens aged 15 and above (l)");
 
+    // read in dataset in csv and crete bar chart
     d3.csv(mainLink, function(d) {
       return {
         Country: d.Country,
@@ -203,8 +213,10 @@ function init() {
     })
   }
 
+  // set up the area chart based on country and year range
   function setupChart(country, tag) {
     if (tag == 1990) {
+      // process some value for D3
       d3.csv('processed_dataset/' + country + ".csv", function(d) {
         return {
           year: new Date(+d.Year, 0, 1),
@@ -241,6 +253,7 @@ function init() {
   };
 
   function barChart(dataset) {
+    // create the bar chart content
     value_dataset = dataset.map(function(d) {
       return d.Average;
     });
@@ -251,6 +264,7 @@ function init() {
     }
     avg = avg / value_dataset.length;
 
+    // set up scale for bar chart based on the datasets used
     var yScale = d3.scaleLinear()
     .domain([0, d3.max(value_dataset)])
     .rangeRound([h - bottomPadding, topPadding]);
@@ -294,6 +308,7 @@ function init() {
       var yPosition = parseFloat(d3.select(this).attr("y"));
       var wd = parseFloat(d3.select(this).attr("width"));
 
+      // create tool tip on hover
       svg.append("text")
       .attr("id", "tooltip")
       .attr("x", xPosition - 2)
@@ -308,6 +323,7 @@ function init() {
       .style("stroke-width", .3);
     })
     .on("mouseout", function(d) {
+      // remove tool tip off hover
       d3.select(this)
       .transition()
       .delay(100)
@@ -316,6 +332,7 @@ function init() {
       d3.select("#tooltip").remove();
     })
     .on("click", function(d) {
+      // handle click for zoom and details on demand
       var id = d.Country;
       country = id;
       var range = title1.innerHTML.substr(title1.innerHTML.length-4,title1.innerHTML.length-1);
@@ -325,44 +342,45 @@ function init() {
       scrollTo();
     })
     .transition()
-    .duration(800)
+    .duration(500)
     .delay(function(d, i) {
-      return i * 200;
+      return i * 100;
     })
     .attr("y", function(d) {
       return yScale(d.Average);
     })
     .attr("height", function(d) {
-      return (h - bottomPadding) - yScale(d.Average);
+      return (h - bottomPadding) - yScale(d.Average)
     })
     .style("fill", function(d) {
+      // fill colour depends on continent and bar chart version
       switch (d.Continent) {
         case "Europe":
           if(colorBlind == "blind") {
             return "#0072B2";
           } else if (colorBlind == "normal") {
-            return "#1f78b4";
+            return "#377eb8";
           }
           break;
         case "Asia/Oceania":
           if(colorBlind == "blind") {
             return "#F0E442";
           } else if (colorBlind == "normal"){
-            return "#d95f02";
+            return "#984ea3";
           }
           break;
         case "Africa":
           if (colorBlind == "blind" ) {
             return "#009E73";
           } else if (colorBlind == "normal"){
-            return "#66a61e";
+            return "#4daf4a";
           }
           break;
         case "America":
           if(colorBlind == "blind") {
             return "#E69F00";
           }else if (colorBlind == "normal"){
-            return "#e7298a";
+            return "#e41a1c";
           }
           break;
         default:
@@ -399,11 +417,14 @@ function init() {
     var axis = document.getElementById('x-axis');
     axis.parentNode.removeChild(axis);
 
+    // sort the bar chart based on alcohol consumption value
+    // descending order
     var sorted = dataset.sort(function(a, b) {
       return d3.descending(a.Average, b.Average);
     });
 
     xAxis.domain(sorted.map(function(d) {
+      // if country too long, it will be shortened for readability
       if(d.Country.length > 9) {
         return d.Country.substring(0,9) + '...';
       } else {
@@ -430,6 +451,7 @@ function init() {
   }
 
   function lineChart(dataset) {
+    // setting up the area chart
     var svg2 = d3.select("#chart2")
     .style("height", "100vh")
     .append('svg')
@@ -453,6 +475,7 @@ function init() {
     .attr("transform", "rotate(-90)")
     .text("Alcohol consumption per capita for citizens aged 15 and above (l)");
 
+    // calculate the average of alcohol consumption over the year range
     var total = 0;
     for (var i = 0; i < dataset.length; i++) {
       total += dataset[i].value;
@@ -475,12 +498,14 @@ function init() {
     .x(function(d, i) {return xScale(d.year); })
     .y(function(d) {return yScale(d.value); })
 
+    // set up the area below the average line
     var area = d3.area()
     .defined(function(d) {return d.value; })
     .x(function(d) {return xScale(d.year); })
     .y0(function(d) {return yScale.range()[0]; })
     .y1(function(d) {return yScale(d.value); })
 
+    // set up the area above the average line
     var dangerArea = d3.area()
     .defined(function(d) {return d.value >= avg; })
     .x(function(d) {return xScale(d.year); })
@@ -538,6 +563,7 @@ function init() {
     .text(country + " average alcohol consumption over the years");
   }
 
+  // smooth scrolling function
   function scrollTo() {
     $('html, body').animate({ scrollTop: $('#insight2').offset().top }, 'slow');
     return false;
